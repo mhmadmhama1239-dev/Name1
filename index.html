@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silkor Saida Branch | تجربة تجميلية متكاملة</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            dark: '#0A1118',
+                            navy: '#16222F',
+                            card: '#1D2C3B',
+                            lightBg: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; }
+        .glass-header {
+            background: rgba(10, 17, 24, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0B9 0%, #D4AF37 50%, #997A15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-bg-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+        }
+        .ba-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            user-select: none;
+        }
+        .ba-after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            overflow: hidden;
+        }
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #D4AF37;
+            transform: translateX(-50%);
+            cursor: ew-resize;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-brand-navy via-brand-card to-brand-navy text-xs sm:text-sm py-2 px-4 border-b border-brand-gold/20 text-center">
+        <span class="inline-block animate-pulse text-brand-gold ml-2">✦</span>
+        عرض حصري لفرع صيدا: احجز استشارتك التقييمية ومسح البشرة التخصصي مجاناً اليوم!
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 glass-header border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- BRAND LOGO -->
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-10 h-10 rounded-full gold-bg-gradient flex items-center justify-center font-bold text-black text-xl shadow-lg shadow-brand-gold/20">
+                        S
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-wider text-white">SILKOR</span>
+                        <span class="block text-[10px] tracking-widest text-brand-gold font-medium -mt-1">SAIDA BRANCH</span>
+                    </div>
+                </div>
+
+                <!-- DESKTOP NAV LINKS -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse text-sm font-medium text-gray-300">
+                    <a href="#services" class="hover:text-brand-gold transition-colors">خدماتنا التخصصية</a>
+                    <a href="#advisor" class="hover:text-brand-gold transition-colors">مستشار الحلول الرقمي</a>
+                    <a href="#results" class="hover:text-brand-gold transition-colors">نتائج التغيير</a>
+                    <a href="#calculator" class="hover:text-brand-gold transition-colors">حاسبة الباقات</a>
+                    <a href="#location" class="hover:text-brand-gold transition-colors">موقع الفرع والتواصل</a>
+                </nav>
+
+                <!-- CALL TO ACTION -->
+                <div class="hidden sm:flex items-center space-x-4 space-x-reverse">
+                    <a href="tel:+9617754222" class="text-sm font-semibold text-gray-300 hover:text-white flex items-center gap-2 border border-white/20 rounded-full px-4 py-2 hover:border-brand-gold transition">
+                        <i class="fa-solid fa-phone text-brand-gold"></i>
+                        07 754 222
+                    </a>
+                    <a href="#calculator" class="gold-bg-gradient text-black text-sm font-bold px-5 py-2.5 rounded-full hover:opacity-90 transition shadow-lg shadow-brand-gold/20">
+                        احجز موعدك الآن
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-300 hover:text-white text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-navy border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" class="block text-gray-300 hover:text-brand-gold py-2">خدماتنا التخصصية</a>
+            <a href="#advisor" class="block text-gray-300 hover:text-brand-gold py-2">مستشار الحلول الرقمي</a>
+            <a href="#results" class="block text-gray-300 hover:text-brand-gold py-2">نتائج التغيير</a>
+            <a href="#calculator" class="block text-gray-300 hover:text-brand-gold py-2">حاسبة الباقات</a>
+            <a href="#location" class="block text-gray-300 hover:text-brand-gold py-2">موقع الفرع والتواصل</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="tel:+9617754222" class="text-center text-sm font-semibold text-gray-300 border border-white/20 rounded-full py-2.5">
+                    <i class="fa-solid fa-phone text-brand-gold ml-2"></i> اتصل بالفرع 07 754 222
+                </a>
+                <a href="#calculator" class="text-center gold-bg-gradient text-black text-sm font-bold py-2.5 rounded-full">
+                    احجز موعدك الآن
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-brand-dark via-brand-navy to-brand-dark">
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="text-right space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-card/80 border border-brand-gold/30 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-gold">
+                        <i class="fa-solid fa-location-dot"></i>
+                        فرع صيدا — مستديرة إيليا
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                        إعادة تعريف <span class="gold-gradient-text">الجمال والعناية الطبية</span> في صيدا
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                        اكتشف تجربة نضارة واستعادة الشباب الحقيقية مع أحدث تقنيات الليزر والعناية بالبشرة عالمياً، تحت إشراف نخبة من الخبراء والأطباء المتخصصين في مركز سيلكور صيدا.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#calculator" class="gold-bg-gradient text-black font-bold px-8 py-4 rounded-xl shadow-xl hover:scale-[1.02] transition-transform duration-200 flex items-center gap-3">
+                            <span>صمّم باقتك واستشرنا</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <a href="#advisor" class="bg-brand-card hover:bg-brand-card/80 border border-white/10 text-white font-medium px-6 py-4 rounded-xl transition duration-200 flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i>
+                            اختر حالتك للتوجيه
+                        </a>
+                    </div>
+
+                    <!-- QUICK METRICS -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-brand-gold">4.9 ★</span>
+                            <span class="text-xs text-gray-400">تقييم زوار الفرع</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-white">+20</span>
+                            <span class="text-xs text-gray-400">عاماً من الخبرة</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-brand-gold">100%</span>
+                            <span class="text-xs text-gray-400">تقنيات معتمدة دولياً</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO GRAPHIC CARD -->
+                <div class="relative">
+                    <div class="relative bg-gradient-to-tr from-brand-card to-brand-navy p-2 rounded-3xl border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Silkor Beauty Medical Care" class="w-full h-[420px] object-cover rounded-2xl opacity-90">
+                        <div class="absolute bottom-6 right-6 left-6 glass-header p-4 rounded-xl border border-brand-gold/30">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
+                                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-sm">أعلى معايير السلامة والتعقيم</h4>
+                                    <p class="text-xs text-gray-400">أجهزة مرخصة طبياً وتكنولوجيا حديثة لضمان أفضل النتائج</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CLINICAL ADVISOR SECTION -->
+    <section id="advisor" class="py-20 bg-brand-navy/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-gold text-sm font-semibold tracking-wider uppercase">تفاعل مباشر</span>
+                <h2 class="text-3xl font-extrabold text-white mt-2">مستشار الحلول التجميلية التفاعلي</h2>
+                <p class="text-gray-400 mt-3 text-sm">اختر النتيجة أو الحالة التي ترغب في علاجها لمعاينة التقنية الطبية الأنسب لك في فرع صيدا:</p>
+            </div>
+
+            <!-- ADVISOR CONTROLS -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10" id="advisor-buttons">
+                <button onclick="filterAdvisor('hair', this)" class="advisor-btn bg-brand-gold text-black font-bold px-5 py-2.5 rounded-full text-sm transition">إزالة الشعر بالليزر</button>
+                <button onclick="filterAdvisor('skin', this)" class="advisor-btn bg-brand-card text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-full text-sm border border-white/10 transition">نضارة وتجديد البشرة</button>
+                <button onclick="filterAdvisor('body', this)" class="advisor-btn bg-brand-card text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-full text-sm border border-white/10 transition">نحت وتنسيق القوام</button>
+                <button onclick="filterAdvisor('antiaging', this)" class="advisor-btn bg-brand-card text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-full text-sm border border-white/10 transition">شد التجاعيد وعلامات التقدم</button>
+            </div>
+
+            <!-- ADVISOR DISPLAY CARD -->
+            <div class="max-w-4xl mx-auto bg-brand-card rounded-2xl border border-white/10 p-6 sm:p-8 shadow-xl" id="advisor-result">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20" id="adv-tag">الخيار الأكثر طلباً</span>
+                        <h3 class="text-2xl font-bold text-white mt-4" id="adv-title">تقنية GentleMax Pro® لإزالة الشعر</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mt-3" id="adv-desc">أحدث الأجهزة العالمية ذات التبريد المزدوج لراحة تامة ونشاط إزالة دقيق لجميع أنواع البشرة بفعالية وأمان تاميْن.</p>
+                        <ul class="space-y-2 mt-4 text-sm text-gray-400" id="adv-list">
+                            <li><i class="fa-solid fa-check text-brand-gold ml-2"></i> يناسب كافة أنواع البشرة والشعر</li>
+                            <li><i class="fa-solid fa-check text-brand-gold ml-2"></i> تقنية تبريد متطورة بدون ألم</li>
+                            <li><i class="fa-solid fa-check text-brand-gold ml-2"></i> جلسات سريعة ونتائج دائمة</li>
+                        </ul>
+                    </div>
+                    <div class="relative rounded-xl overflow-hidden border border-white/10">
+                        <img id="adv-img" src="https://images.unsplash.com/photo-1512290900673-7002fa200b3e?auto=format&fit=crop&w=700&q=80" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section id="services" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-white">خدماتنا التخصصية في فرع صيدا</h2>
+                <div class="w-16 h-1 gold-bg-gradient mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- CARD 1 -->
+                <div class="bg-brand-card rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">العناية بالبشرة والفيشل الطبي</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">جلسات Hydrafacial MD والتنظيف العميق وعلاج التصبغات لتحقيق إشراقة فورية ومظهر حيوي مشرق.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-xs text-brand-gold font-semibold">
+                        <span>جلسات تخصصية مخصصة</span>
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="bg-brand-card rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">إزالة الشعر بالليزر الطبية</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">أعلى درجات الدقة والسرعة باستعمال أحدث الأجهزة الطبية المرخّصة عالمياً مع مراعاة كاملة لراحة البشرة.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-xs text-brand-gold font-semibold">
+                        <span>لكافة مناطق الجسم</span>
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="bg-brand-card rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">الطب التجميلي والشد</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">حقن الفيلر والفركشنال ليزر وتقنيات Morpheus8 لإعادة صياغة ملامح الوجه ونضارة البشرة بدون جراحة.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-xs text-brand-gold font-semibold">
+                        <span>إشراف طبي متخصص</span>
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE BEFORE/AFTER SLIDER -->
+    <section id="results" class="py-20 bg-brand-navy/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-gold text-sm font-semibold">نتائج ملموسة</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-2">عاين فرق النضارة والتجدد بنفسك</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed mt-4">
+                        نحرص في مركز سيلكور صيدا على تقديم نتائج طبيعية ومستدامة من خلال خيارات علاجية مدروسة تناسب كل حالة بشكل منفرد.
+                    </p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i> تحسن ملموس في مرونة ونضارة البشرة من الجلسة الأولى.
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i> بروتوكولات عناية متابعة مخصصة بعد كل جلسة.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDER CONTAINER -->
+                <div class="ba-container h-80 sm:h-96 w-full shadow-2xl border border-white/10" id="ba-slider">
+                    <!-- Before Image -->
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover">
+                    <span class="absolute top-4 right-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full backdrop-blur-md">قبل العلاج</span>
+                    
+                    <!-- After Image (Clipped) -->
+                    <div class="ba-after" id="ba-after-layer">
+                        <img src="https://images.unsplash.com/photo-1512290900673-7002fa200b3e?auto=format&fit=crop&w=900&q=80" class="absolute top-0 bottom-0 left-0 w-full h-full object-cover max-w-none">
+                        <span class="absolute top-4 left-4 bg-brand-gold text-black font-bold text-xs px-3 py-1 rounded-full shadow">بعد العلاج</span>
+                    </div>
+
+                    <!-- Divider Line -->
+                    <div class="ba-handle" id="ba-handle">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full gold-bg-gradient flex items-center justify-center text-black text-xs font-bold shadow-lg">
+                            ↔
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PACKAGE CALCULATOR & BOOKING -->
+    <section id="calculator" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-b from-brand-card to-brand-navy rounded-3xl p-6 sm:p-10 border border-brand-gold/30 shadow-2xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">حاسبة الباقات واستمارة الحجز المباشر</h2>
+                    <p class="text-gray-300 text-sm mt-2">اختر الخدمات المعنية لحساب التكلفة التقديرية وإرسال طلب الحجز لفرع صيدا</p>
+                </div>
+
+                <form id="booking-form" onsubmit="sendToWhatsApp(event)" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-300 mb-3">اختر الخدمات المطلوبة:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center justify-between p-3.5 bg-brand-dark/60 rounded-xl border border-white/10 cursor-pointer hover:border-brand-gold/50 transition">
+                                <span class="text-sm text-gray-200">إزالة الشعر بالليزر (منطقة محددة)</span>
+                                <input type="checkbox" value="50" data-name="إزالة شعر ليزر" class="calc-item accent-yellow-600 w-4 h-4" onchange="calculateTotal()">
+                            </label>
+                            <label class="flex items-center justify-between p-3.5 bg-brand-dark/60 rounded-xl border border-white/10 cursor-pointer hover:border-brand-gold/50 transition">
+                                <span class="text-sm text-gray-200">جلسة Hydrafacial نضارة بشرة</span>
+                                <input type="checkbox" value="80" data-name="جلسة هيدرافيشل" class="calc-item accent-yellow-600 w-4 h-4" onchange="calculateTotal()">
+                            </label>
+                            <label class="flex items-center justify-between p-3.5 bg-brand-dark/60 rounded-xl border border-white/10 cursor-pointer hover:border-brand-gold/50 transition">
+                                <span class="text-sm text-gray-200">استشارة وتنظيف للبشرة تخصصي</span>
+                                <input type="checkbox" value="40" data-name="تنظيف بشرة تخصصي" class="calc-item accent-yellow-600 w-4 h-4" onchange="calculateTotal()">
+                            </label>
+                            <label class="flex items-center justify-between p-3.5 bg-brand-dark/60 rounded-xl border border-white/10 cursor-pointer hover:border-brand-gold/50 transition">
+                                <span class="text-sm text-gray-200">جلسة نحت وتنسيق القوام</span>
+                                <input type="checkbox" value="100" data-name="جلسة نحت القوام" class="calc-item accent-yellow-600 w-4 h-4" onchange="calculateTotal()">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ESTIMATED PRICE DISPLAY -->
+                    <div class="bg-brand-dark/80 p-4 rounded-xl border border-brand-gold/20 flex justify-between items-center">
+                        <span class="text-sm text-gray-300">التكلفة التقديرية الحالية:</span>
+                        <span class="text-2xl font-extrabold text-brand-gold" id="total-price">$0 USD</span>
+                    </div>
+
+                    <!-- USER INPUTS -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">الاسم الكامل *</label>
+                            <input type="text" id="user-name" required placeholder="أدخل اسمك الكريم" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">رقم الهاتف *</label>
+                            <input type="tel" id="user-phone" required placeholder="03 XXXXXX" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full gold-bg-gradient text-black font-extrabold py-4 rounded-xl shadow-lg hover:opacity-95 transition text-base flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        تأكيد وإرسال التفاصيل مباشرة عبر واتساب الفرع
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="location" class="py-20 bg-brand-navy border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-brand-gold text-sm font-semibold">تفضل بزيارتنا</span>
+                    <h2 class="text-3xl font-extrabold text-white">مركز سيلكور - فرع صيدا</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        يقع فرعنا في قلب مدينة صيدا لتأمين أقصى درجات الراحة وسهولة الوصول لعملائنا الكرام.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-brand-gold border border-white/10 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">العنوان الدقيق</h4>
+                                <p class="text-gray-400 text-xs mt-1">مستديرة إيليا، زعتري بلازا / بجانب بناية دندشلي، فوق Credit Libanais، الطابق 1، صيدا، لبنان</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-brand-gold border border-white/10 shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">الهاتف المباشر</h4>
+                                <p class="text-gray-400 text-xs mt-1">+961 7 754 222</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-brand-gold border border-white/10 shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">أوقات العمل</h4>
+                                <p class="text-gray-400 text-xs mt-1">الإثنين - السبت: 9:00 صباحاً حتى 7:00 مساءً</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://maps.app.goo.gl/TTntPkpm3K8zLg8W9" target="_blank" class="inline-flex items-center gap-2 bg-brand-card border border-brand-gold/40 text-brand-gold font-bold px-6 py-3 rounded-xl hover:bg-brand-gold hover:text-black transition duration-200 text-sm">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            فتح الموقع في خرائط Google
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RELIABLE GOOGLE MAPS EMBED FOR SAIDA ELIA ROUNDABOUT -->
+                <div class="h-96 rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Silkor%20Saida%20Branch&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark py-8 border-t border-white/10 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Silkor Saida Branch — جميع الحقوق محفوظة | نموذج تجربة رقمية تفاعلية مخصصة</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // MOBILE MENU TOGGLE
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // ADVISOR DATA & FILTERING
+        const advisorData = {
+            hair: {
+                tag: 'الأكثر إقبالاً',
+                title: 'إزالة الشعر بالليزر (GentleMax Pro®)',
+                desc: 'تقنية ليزر ممتازة تعتمد على التبريد الديناميكي الفوري لراحة تامة أثناء الجلسة مع فاعلية فائقة للبشرة.',
+                img: 'https://images.unsplash.com/photo-1512290900673-7002fa200b3e?auto=format&fit=crop&w=700&q=80',
+                list: ['مناسب لكافة أنواع الشعر والبشرة', 'تقنية تبريد متطورة بدون ألم', 'نتائج ملموسة من الجلسات الأولى']
+            },
+            skin: {
+                tag: 'نضارة فورية',
+                title: 'جلسات Hydrafacial MD والتنظيف العميق',
+                desc: 'علاج متكامل يجمع بين التقشير والتنظيف والترطيب بحوامض الهيالورونيك والسيروم المغذي لإشراقة سريعة.',
+                img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80',
+                list: ['تنعيم ملمس البشرة وإغلاق المسام', 'ترطيب عميق يستمر لأسابيع', 'تفتيح وتوحيد لون البشرة']
+            },
+            body: {
+                tag: 'نحت بدون جراحة',
+                title: 'تقنيات نحت وتنسيق القوام (CoolSculpting)',
+                desc: 'جلسات تجميلية لعلاج واستهدف الدهون المستعصية وتحسين قوام الجسم وتنسيقه بدون فترة توقف.',
+                img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=80',
+                list: ['إجراء آمن وغير جراحي', 'استهداف دقيق للمناطق المحددة', 'تحسن متدرج ومستمر']
+            },
+            antiaging: {
+                tag: 'استعادة الشباب',
+                title: 'تقنية Morpheus8 والشد الطبي',
+                desc: 'دمج تقنية الوخز الدقيق مع أمواج الراديو لفيزيائية تحفيز الكولاجين العميق وشد البشرة والتجاعيد.',
+                img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80',
+                list: ['تحفيز إنتاج الكولاجين الطبيعي', 'تحسين قوام ورونق الجلد', 'نتائج طويلة الأمد']
+            }
+        };
+
+        function filterAdvisor(type, element) {
+            const data = advisorData[type];
+            document.getElementById('adv-tag').innerText = data.tag;
+            document.getElementById('adv-title').innerText = data.title;
+            document.getElementById('adv-desc').innerText = data.desc;
+            document.getElementById('adv-img').src = data.img;
+
+            const listContainer = document.getElementById('adv-list');
+            listContainer.innerHTML = data.list.map(item => `<li><i class="fa-solid fa-check text-brand-gold ml-2"></i> ${item}</li>`).join('');
+
+            document.querySelectorAll('.advisor-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-gold', 'text-black', 'font-bold');
+                btn.classList.add('bg-brand-card', 'text-gray-300', 'font-medium');
+            });
+            element.classList.add('bg-brand-gold', 'text-black', 'font-bold');
+            element.classList.remove('bg-brand-card', 'text-gray-300');
+        }
+
+        // BEFORE / AFTER INTERACTIVE SLIDER
+        const slider = document.getElementById('ba-slider');
+        const afterLayer = document.getElementById('ba-after-layer');
+        const handle = document.getElementById('ba-handle');
+
+        let isDragging = false;
+
+        function moveSlider(x) {
+            const rect = slider.getBoundingClientRect();
+            let position = ((x - rect.left) / rect.width) * 100;
+            if (position < 0) position = 0;
+            if (position > 100) position = 100;
+
+            afterLayer.style.width = `${position}%`;
+            handle.style.left = `${position}%`;
+        }
+
+        slider.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e.clientX);
+        });
+
+        slider.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e.touches[0].clientX);
+        });
+
+        // CALCULATOR LOGIC
+        function calculateTotal() {
+            let total = 0;
+            const checkboxes = document.querySelectorAll('.calc-item:checked');
+            checkboxes.forEach(cb => {
+                total += parseInt(cb.value);
+            });
+            document.getElementById('total-price').innerText = `$${total} USD`;
+        }
+
+        // WHATSAPP DIRECT SENDING
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const selectedServices = Array.from(document.querySelectorAll('.calc-item:checked'))
+                .map(cb => cb.getAttribute('data-name'))
+                .join('، ');
+
+            const total = document.getElementById('total-price').innerText;
+
+            const text = `مرحباً فرع سيلكور صيدا، أرغب في حجز موعد استشارة:\n\n- الاسم: ${name}\n- الهاتف: ${phone}\n- الخدمات المختارة: ${selectedServices || 'استشارة عامة'}\n- التكلفة التقديرية: ${total}`;
+            const encodedText = encodeURIComponent(text);
+            
+            // Redirecting directly to branch WhatsApp number
+            window.open(`https://wa.me/9617754222?text=${encodedText}`, '_blank');
+        }
+    </script>
+</body>
+</html>
